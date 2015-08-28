@@ -5,22 +5,22 @@
   
   <title>Scrollview的Autolayout约束布局 | chenyk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="fsfsdfsdfsdfsafasf">
+  <meta name="description" content="&amp;#160;&amp;#160;&amp;#160; 随着iPhone手机屏幕尺寸的增多，Autolayout约束布局在适配屏幕中用的越来越多。初学者刚接触autolayout时，在对scrollView上约束布局往往不知所措，其实理解autolayout后，在屏幕适配时，不用一行代码，即可轻松实现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scrollview的Autolayout约束布局">
 <meta property="og:url" content="http://chenyk.com/2015/08/28/scrollviewAutolayout/index.html">
 <meta property="og:site_name" content="chenyk">
-<meta property="og:description" content="fsfsdfsdfsdfsafasf">
+<meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160; 随着iPhone手机屏幕尺寸的增多，Autolayout约束布局在适配屏幕中用的越来越多。初学者刚接触autolayout时，在对scrollView上约束布局往往不知所措，其实理解autolayout后，在屏幕适配时，不用一行代码，即可轻松实现。">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/6.gif">
 <meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/1.png">
 <meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/2.png">
 <meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/3.png">
 <meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/4.png">
 <meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/5.png">
-<meta property="og:image" content="http://chenyk.com/../../../../blogImg/scrollviewAutolayout/6.gif">
-<meta property="og:updated_time" content="2015-08-28T16:24:26.000Z">
+<meta property="og:updated_time" content="2015-08-28T16:55:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrollview的Autolayout约束布局">
-<meta name="twitter:description" content="fsfsdfsdfsdfsafasf">
+<meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160; 随着iPhone手机屏幕尺寸的增多，Autolayout约束布局在适配屏幕中用的越来越多。初学者刚接触autolayout时，在对scrollView上约束布局往往不知所措，其实理解autolayout后，在屏幕适配时，不用一行代码，即可轻松实现。">
   
     <link rel="alternative" href="/atom.xml" title="chenyk" type="application/atom+xml">
   
@@ -224,10 +224,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>fsfsdfsdfsdfsafasf</p>
+        <p>&#160;&#160;&#160; 随着iPhone手机屏幕尺寸的增多，Autolayout约束布局在适配屏幕中用的越来越多。初学者刚接触autolayout时，在对scrollView上约束布局往往不知所措，其实理解autolayout后，在屏幕适配时，不用一行代码，即可轻松实现。</p>
 <a id="more"></a> 
+<p>使用autolayout对scrollView进行约束布局，五步轻松实现。效果如下图所示。</p>
+<p><img src="../../../../blogImg/scrollviewAutolayout/6.gif" alt="image"></p>
 <hr>
-<p><img src="../../../../blogImg/scrollviewAutolayout/1.png" alt="image"><br><img src="../../../../blogImg/scrollviewAutolayout/2.png" alt="image"><br><img src="../../../../blogImg/scrollviewAutolayout/3.png" alt="image"><br><img src="../../../../blogImg/scrollviewAutolayout/4.png" alt="image"><br><img src="../../../../blogImg/scrollviewAutolayout/5.png" alt="image"><br><img src="../../../../blogImg/scrollviewAutolayout/6.gif" alt="image"></p>
+<ul>
+<li>第一步 首先在Storyboard或者xib上放一个UIScrollView,增加约束，距离顶部80，左右各0，固定高150，如下图所示；当然这里你也可以自定义其他约束。</li>
+</ul>
+<p><img src="../../../../blogImg/scrollviewAutolayout/1.png" alt="image"></p>
+<hr>
+<ul>
+<li>第二步 在scrolView上放一个UIView,增加约束上下左右都为0，如下图所示。</li>
+</ul>
+<p><img src="../../../../blogImg/scrollviewAutolayout/2.png" alt="image"></p>
+<hr>
+<ul>
+<li>第三步  设置view的vertical center in container等于0，这里是时scrollView左右滑动,当然你想让scrollview上下滑动是要设置horizontal center in container等于0，二者都设置时，scrollView可以上下和左右滑动。这里设置完之后，会报红色约束错误，如下图所示，没关系，继续往下看。</li>
+</ul>
+<p><img src="../../../../blogImg/scrollviewAutolayout/3.png" alt="image"></p>
+<hr>
+<ul>
+<li>第四步 设置view的宽度width等于600，这里是左右滑动，如下图所示。</li>
+</ul>
+<p><img src="../../../../blogImg/scrollviewAutolayout/4.png" alt="image"></p>
+<hr>
+<ul>
+<li>第5步 在view上放几个子视图，可以不设置约束。如下图所示。更新下所有frame的黄色警告，运行你的程序吧，实现scrollView的autolayout布局就这么简单。</li>
+</ul>
+<p><img src="../../../../blogImg/scrollviewAutolayout/5.png" alt="image"></p>
 
       
     </div>
