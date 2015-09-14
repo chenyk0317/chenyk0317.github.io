@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ASP-NET/" style="font-size: 10px;">ASP.NET</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/WebAPI/" style="font-size: 10px;">WebAPI</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/软件/" style="font-size: 10px;">软件</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/ASP-NET/" style="font-size: 10px;">ASP.NET</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/WebAPI/" style="font-size: 10px;">WebAPI</a> <a href="/tags/iOS开发/" style="font-size: 20px;">iOS开发</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/软件/" style="font-size: 10px;">软件</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -181,6 +181,64 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-iOSMultiIconConfig" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/14/iOSMultiIconConfig/" class="article-date">
+  	<time datetime="2015-09-14T09:50:23.000Z" itemprop="datePublished">2015-09-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/14/iOSMultiIconConfig/">iOS根据Debug或Release模式加载程序包和Icon</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#160;&#160;&#160; 一般应用在开发阶段使用都是debug模式和测试服务器，而上线到AppStore后则使用release模式和线上服务器。开发者在发布一个新版本之前，一般会调成release模式和线上服务器再测试一遍，保证应用的稳定性。然而release模式和debug模式是一个Bundle ID，则这俩种模式共用一个沙盒目录，由于一般应用都会缓存一些用户信息在本地沙盒，那么在生成一个新模式的程序包时，需要把旧模式的程序包删掉，才能保证应用不会有异常。那么这样会对开发者带来不必要的麻烦。那能不能根据debug或者release模式动态修改Bundle ID，以保证沙盒目录的不同呢？答案是可以的。问题又来了，不同Bundle ID 就是俩个不同的应用，但是用的是同一个ICON，这样就区分不开二者了，那么能不能根据不同模式动态的加载不同ICON呢？答案也是可以的。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/14/iOSMultiIconConfig/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-WebAPISelfHost" class="article article-type-post" itemscope itemprop="blogPost">
   

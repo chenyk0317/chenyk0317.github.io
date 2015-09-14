@@ -3,36 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>软件设计模式六大原则 | chenyk</title>
+  <title>iOS根据Debug或Release模式加载程序包和Icon | chenyk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记得大学老师亮哥说过的一句话”设计模式是一门艺术”，随着工作经验的积累，对这句话理解也越来越深，码代码码的好是一门艺术，就像雕刻师精心雕刻一件艺术品一样。码的不好就像搬砖，设计模式就是反反复复把代码最优，最容易扩展，高内聚低耦合。当然并不是一味的遵循一种设计写的代码就是好代码，要根据不同场景使用合理的设计模式。设计模式有六大原则。
-
-单一职责原则
-里氏替换原则
-依赖倒置原则
-接口隔离原则
-迪米特法">
+  <meta name="description" content="&amp;#160;&amp;#160;&amp;#160; 一般应用在开发阶段使用都是debug模式和测试服务器，而上线到AppStore后则使用release模式和线上服务器。开发者在发布一个新版本之前，一般会调成release模式和线上服务器再测试一遍，保证应用的稳定性。然而release模式和debug模式是一个Bundle ID，则这俩种模式共用一个沙盒目录，由于一般应用都会缓存一些用户信息在本地沙盒，那么在生">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件设计模式六大原则">
-<meta property="og:url" content="http://chenyk.com/2015/07/15/software-design-mode/index.html">
+<meta property="og:title" content="iOS根据Debug或Release模式加载程序包和Icon">
+<meta property="og:url" content="http://chenyk.com/2015/09/14/iOSMultiIconConfig/index.html">
 <meta property="og:site_name" content="chenyk">
-<meta property="og:description" content="记得大学老师亮哥说过的一句话”设计模式是一门艺术”，随着工作经验的积累，对这句话理解也越来越深，码代码码的好是一门艺术，就像雕刻师精心雕刻一件艺术品一样。码的不好就像搬砖，设计模式就是反反复复把代码最优，最容易扩展，高内聚低耦合。当然并不是一味的遵循一种设计写的代码就是好代码，要根据不同场景使用合理的设计模式。设计模式有六大原则。
-
-单一职责原则
-里氏替换原则
-依赖倒置原则
-接口隔离原则
-迪米特法">
-<meta property="og:updated_time" content="2015-07-17T01:54:40.000Z">
+<meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160; 一般应用在开发阶段使用都是debug模式和测试服务器，而上线到AppStore后则使用release模式和线上服务器。开发者在发布一个新版本之前，一般会调成release模式和线上服务器再测试一遍，保证应用的稳定性。然而release模式和debug模式是一个Bundle ID，则这俩种模式共用一个沙盒目录，由于一般应用都会缓存一些用户信息在本地沙盒，那么在生">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/1.png">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/2.png">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/3.png">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/4.png">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/5.png">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/6.png">
+<meta property="og:image" content="http://chenyk.com/../../../../blogImg/iOSMultiIconConfig/7.png">
+<meta property="og:updated_time" content="2015-09-14T10:45:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件设计模式六大原则">
-<meta name="twitter:description" content="记得大学老师亮哥说过的一句话”设计模式是一门艺术”，随着工作经验的积累，对这句话理解也越来越深，码代码码的好是一门艺术，就像雕刻师精心雕刻一件艺术品一样。码的不好就像搬砖，设计模式就是反反复复把代码最优，最容易扩展，高内聚低耦合。当然并不是一味的遵循一种设计写的代码就是好代码，要根据不同场景使用合理的设计模式。设计模式有六大原则。
-
-单一职责原则
-里氏替换原则
-依赖倒置原则
-接口隔离原则
-迪米特法">
+<meta name="twitter:title" content="iOS根据Debug或Release模式加载程序包和Icon">
+<meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160; 一般应用在开发阶段使用都是debug模式和测试服务器，而上线到AppStore后则使用release模式和线上服务器。开发者在发布一个新版本之前，一般会调成release模式和线上服务器再测试一遍，保证应用的稳定性。然而release模式和debug模式是一个Bundle ID，则这俩种模式共用一个沙盒目录，由于一般应用都会缓存一些用户信息在本地沙盒，那么在生">
   
     <link rel="alternative" href="/atom.xml" title="chenyk" type="application/atom+xml">
   
@@ -199,11 +188,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-software-design-mode" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSMultiIconConfig" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/15/software-design-mode/" class="article-date">
-  	<time datetime="2015-07-15T03:57:20.000Z" itemprop="datePublished">2015-07-15</time>
+      <a href="/2015/09/14/iOSMultiIconConfig/" class="article-date">
+  	<time datetime="2015-09-14T09:50:23.000Z" itemprop="datePublished">2015-09-14</time>
 </a>
     </div>
   
@@ -216,7 +205,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      软件设计模式六大原则
+      iOS根据Debug或Release模式加载程序包和Icon
     </h1>
   
 
@@ -225,7 +214,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件/">软件</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS开发/">iOS开发</a></li></ul>
 	</div>
 
         
@@ -236,56 +225,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记得大学老师亮哥说过的一句话”设计模式是一门艺术”，随着工作经验的积累，对这句话理解也越来越深，码代码码的好是一门艺术，就像雕刻师精心雕刻一件艺术品一样。码的不好就像搬砖，设计模式就是反反复复把代码最优，最容易扩展，高内聚低耦合。当然并不是一味的遵循一种设计写的代码就是好代码，要根据不同场景使用合理的设计模式。设计模式有六大原则。</p>
+        <p>&#160;&#160;&#160; 一般应用在开发阶段使用都是debug模式和测试服务器，而上线到AppStore后则使用release模式和线上服务器。开发者在发布一个新版本之前，一般会调成release模式和线上服务器再测试一遍，保证应用的稳定性。然而release模式和debug模式是一个Bundle ID，则这俩种模式共用一个沙盒目录，由于一般应用都会缓存一些用户信息在本地沙盒，那么在生成一个新模式的程序包时，需要把旧模式的程序包删掉，才能保证应用不会有异常。那么这样会对开发者带来不必要的麻烦。那能不能根据debug或者release模式动态修改Bundle ID，以保证沙盒目录的不同呢？答案是可以的。问题又来了，不同Bundle ID 就是俩个不同的应用，但是用的是同一个ICON，这样就区分不开二者了，那么能不能根据不同模式动态的加载不同ICON呢？答案也是可以的。<br><a id="more"></a> </p>
+<p>效果如下图所示。</p>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/1.png" alt="image"></p>
 <ul>
-<li>单一职责原则</li>
-<li>里氏替换原则</li>
-<li>依赖倒置原则</li>
-<li>接口隔离原则</li>
-<li>迪米特法则</li>
-<li>开闭原则<a id="more"></a> 
-<blockquote>
-<h2 id="1-单一职责原则">1.单一职责原则</h2></blockquote>
-</li>
+<li>首先 在<code>images.xcassets</code> 添加两个ICON的集命名分别问<code>AppIcon</code>和<code>AppIconDebug</code>。并把不同状态的ICON添加进去。如下两张图所示。</li>
 </ul>
-<p>定义：不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。</p>
-<h6 id="遵循单一职责原的优点有：">遵循单一职责原的优点有：</h6><ul>
-<li>可以降低类的复杂度，一个类只负责一项职责，其逻辑肯定要比负责多项职责简单的多；</li>
-<li>提高类的可读性，提高系统的可维护性；</li>
-<li>变更引起的风险降低，变更是必然的，如果单一职责原则遵守的好，当修改一个功能时，可以显著降低对其他功能的影响。</li>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/2.png" alt="image"></p>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/3.png" alt="image"></p>
+<ul>
+<li>然后 在<code>TARGETS</code>中的<code>Build Settings</code>中的<code>Asset Catalog App Icon Set Name</code>的Debug和Release中输入刚才添加的两个不同状态的ICON集的名字，如下图所示。</li>
 </ul>
-<blockquote>
-<h2 id="2-里氏替换原则">2.里氏替换原则</h2></blockquote>
-<p>定义：如果对每一个类型为 T1的对象 o1，都有类型为 T2 的对象o2，使得以 T1定义的所有程序 P 在所有的对象 o1 都代换成 o2 时，程序 P 的行为没有发生变化，那么类型 T2 是类型 T1 的子类型。所有引用基类的地方必须能透明地使用其子类的对象。</p>
-<h6 id="里氏替换要求">里氏替换要求</h6><ul>
-<li>子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。</li>
-<li>子类中可以增加自己特有的方法。</li>
-<li>当子类的方法重载父类的方法时，方法的前置条件（即方法的形参）要比父类方法的输入参数更宽松。</li>
-<li>当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格。</li>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/4.png" alt="image"></p>
+<ul>
+<li>接着 点击<code>Editor</code>=&gt;<code>Add Build Setting</code>=&gt;<code>Add User-Defined Setting</code>。如下图所示。</li>
 </ul>
-<blockquote>
-<h2 id="3-依赖倒置原则">3.依赖倒置原则</h2></blockquote>
-<p>定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。</p>
-<h6 id="依赖倒置要求">依赖倒置要求</h6><ul>
-<li>低层模块尽量都要有抽象类或接口，或者两者都有。</li>
-<li>变量的声明类型尽量是抽象类或接口。</li>
-<li>使用继承时遵循里氏替换原则。</li>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/5.png" alt="image"></p>
+<ul>
+<li>然后 在添加的<code>User-Defined</code>中输入<code>Bundle_identifier</code>。并在Debug模式中输入<code>com.xxxxx.app.debug</code>,Release模式中输入<code>com.xxxxx.app</code>。如下图所示。</li>
 </ul>
-<blockquote>
-<h2 id="4-接口隔离原则">4.接口隔离原则</h2></blockquote>
-<p>定义：客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。<br>问题由来：类A通过接口I依赖类B，类C通过接口I依赖类D，如果接口I对于类A和类B来说不是最小接口，则类B和类D必须去实现他们不需要的方法。</p>
-<h6 id="接口隔离要求">接口隔离要求</h6><ul>
-<li>接口尽量小，但是要有限度。对接口进行细化可以提高程序设计灵活性是不挣的事实，但是如果过小，则会造成接口数量过多，使设计复杂化。所以一定要适度。</li>
-<li>为依赖接口的类定制服务，只暴露给调用的类它需要的方法，它不需要的方法则隐藏起来。只有专注地为一个模块提供定制服务，才能建立最小的依赖关系。</li>
-<li>提高内聚，减少对外交互。使接口用最少的方法去完成最多的事情。</li>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/6.png" alt="image"></p>
+<ul>
+<li>最后 修改<code>Custom iOS Target Properties</code>中的<code>Bundle identifier</code>,在该行输入<code>${Bundle_identifier}</code></li>
 </ul>
-<blockquote>
-<h2 id="5-迪米特法则">5.迪米特法则</h2></blockquote>
-<p>定义：一个对象应该对其他对象保持最少的了解。</p>
-<p>迪米特法则的初衷是降低类之间的耦合，由于每个类都减少了不必要的依赖，因此的确可以降低耦合关系。但是凡事都有度，虽然可以避免与非直接的类通信，但是要通信，必然会通过一个“中介”来发生联系，例如本例中，总公司就是通过分公司这个“中介”来与分公司的员工发生联系的。过分的使用迪米特原则，会产生大量这样的中介和传递类，导致系统复杂度变大。所以在采用迪米特法则时要反复权衡，既做到结构清晰，又要高内聚低耦合。</p>
-<blockquote>
-<h2 id="6-开闭原则">6.开闭原则</h2></blockquote>
-<p>定义：一个软件实体如类、模块和函数应该对扩展开放，对修改关闭</p>
+<p><img src="../../../../blogImg/iOSMultiIconConfig/7.png" alt="image"></p>
+<p>把你的程序分别调成Debug和Release模式运行起来，看下效果吧。</p>
+<p>源代码  <a href="https://github.com/chenyk0317/iOSMultiIconConfig" target="_blank" rel="external">下载</a></p>
 
       
     </div>
@@ -295,18 +260,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/08/28/scrollviewAutolayout/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Scrollview的Autolayout约束布局
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/14/BlogBeginning/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">博客的开始</div>
+    <a href="/2015/08/31/WebAPISelfHost/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebAPI中的SelfHost</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -335,7 +291,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="software-design-mode" data-title="软件设计模式六大原则" data-url="http://chenyk.com/2015/07/15/software-design-mode/"></div>
+	<div class="ds-thread" data-thread-key="iOSMultiIconConfig" data-title="iOS根据Debug或Release模式加载程序包和Icon" data-url="http://chenyk.com/2015/09/14/iOSMultiIconConfig/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
