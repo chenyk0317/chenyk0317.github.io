@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="陈大坤坤的博客">
 <meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;Cocoapods是iOS开发中第三库的依赖管理工具，有了它可以很方便的管理第三库文件，第三库版本更新时也只需要执行更新命令就可以了，很大的提高了开发效率。本文主要是讲如何制作自己的Cocoapods库，以前Cocoapods的制作需要向Github中CocoaPods/Specs的项目pull request。但是在0.33版本的Cocoapods">
 <meta property="og:image" content="http://chenyk.com/../../../../blogImg/createMyCocoapods/finder.jpeg">
-<meta property="og:updated_time" content="2015-12-12T07:24:34.000Z">
+<meta property="og:updated_time" content="2015-12-12T07:25:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="制作自己的公有Cocoapods库">
 <meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;Cocoapods是iOS开发中第三库的依赖管理工具，有了它可以很方便的管理第三库文件，第三库版本更新时也只需要执行更新命令就可以了，很大的提高了开发效率。本文主要是讲如何制作自己的Cocoapods库，以前Cocoapods的制作需要向Github中CocoaPods/Specs的项目pull request。但是在0.33版本的Cocoapods">
@@ -221,27 +221,22 @@
       
         <p>&#160;&#160;&#160;&#160;Cocoapods是iOS开发中第三库的依赖管理工具，有了它可以很方便的管理第三库文件，第三库版本更新时也只需要执行更新命令就可以了，很大的提高了开发效率。本文主要是讲如何制作自己的Cocoapods库，以前Cocoapods的制作需要向Github中CocoaPods/Specs的项目pull request。但是在0.33版本的Cocoapods中，提交自己的库信息改为了trunk服务。</p>
 <a id="more"></a> 
-<p>==============</p>
 <h3 id="准备">准备</h3><p>首先把自己想要制作的库文件和示例代码托管的到Github上，并release对应的版本号，文件目录结构建议如下图所示。</p>
 <p><img src="../../../../blogImg/createMyCocoapods/finder.jpeg" alt="image"></p>
 <p><code>YKLineChartView</code> 是库源码</p>
 <p><code>YKLineChartViewExample</code> 是示例代码</p>
-<p>==============</p>
 <h3 id="创建podspec">创建podspec</h3><p>在上述根目录下创建podspec文件</p>
 <p>执行 <code>pod spec create  YKLineChartView</code>命令</p>
 <p>编辑 <code>YKLineChartView.podspec</code>文件</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="constant">Pod:</span><span class="symbol">:Spec</span>.new <span class="keyword">do</span> |s|</span><br><span class="line">  s.name         = <span class="string">'YKLineChartView'</span></span><br><span class="line">  s.summary      = <span class="string">'chart framework for iOS.'</span></span><br><span class="line">  s.version      = <span class="string">'0.1'</span></span><br><span class="line">  s.license      = &#123; <span class="symbol">:type</span> =&gt; <span class="string">'MIT'</span>, <span class="symbol">:file</span> =&gt; <span class="string">'LICENSE'</span> &#125;</span><br><span class="line">  s.authors      = &#123; <span class="string">'chenyk0317'</span> =&gt; <span class="string">'chenyk0317@163.com'</span> &#125;</span><br><span class="line">  s.social_media_url = <span class="string">'http://chenyk.com'</span></span><br><span class="line">  s.homepage     = <span class="string">'https://github.com/chenyk0317/YKLineChartView'</span></span><br><span class="line">  s.platform     = <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line">  s.ios.deployment_target = <span class="string">'7.0'</span></span><br><span class="line">  s.source       = &#123; <span class="symbol">:git</span> =&gt; <span class="string">'https://github.com/chenyk0317/YKLineChartView.git'</span>, <span class="symbol">:tag</span> =&gt; s.version.to_s &#125;</span><br><span class="line">  </span><br><span class="line">  s.requires_arc = <span class="keyword">true</span></span><br><span class="line">  s.source_files = <span class="string">'YKLineChartView/*.&#123;h,m&#125;'</span></span><br><span class="line">  s.public_header_files = <span class="string">'YKLineChartView/*.&#123;h&#125;'</span></span><br><span class="line">  s.frameworks = <span class="string">'UIKit'</span>, <span class="string">'CoreFoundation'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">s<span class="class">.name</span>         库名字</span><br><span class="line">s<span class="class">.summary</span>      库简介</span><br><span class="line">s<span class="class">.version</span>      版本号，对应Github中release的版本号</span><br><span class="line">s<span class="class">.license</span>      开源许可</span><br><span class="line">s<span class="class">.authors</span>      作者信息</span><br><span class="line">s<span class="class">.homepage</span>     库主页</span><br><span class="line">s<span class="class">.platform</span>     支持平台</span><br><span class="line">s<span class="class">.source</span>       库文件来源</span><br><span class="line"></span><br><span class="line">s<span class="class">.requires_arc</span>  是否ARC</span><br><span class="line">s<span class="class">.source_files</span>   源文件</span><br><span class="line">s<span class="class">.public_header_files</span>  公开头文件</span><br><span class="line">s<span class="class">.frameworks</span>    依赖其他的框架</span><br></pre></td></tr></table></figure>
 <p>执行 <code>pod lib lint</code>命令 检查podspec文件的格式合法性。</p>
-<p>==============</p>
 <h3 id="注册trunk">注册trunk</h3><p>第一次提交podspec文件，需要注册trunk。</p>
 <p>执行 <code>pod trunk register 邮箱 &quot;用户名&quot;</code>命令</p>
 <p>邮箱和用户名和podspec文件中的保持一致，此时会收到一封确认邮件，点击链接确认。</p>
-<p>==============</p>
 <h3 id="提交">提交</h3><p>提交自己的podspec文件。</p>
 <p>执行 <code>pod trunk push YKLineChartView.podspec</code>命令</p>
 <p>等待提交状态。</p>
-<p>==============</p>
 <h3 id="测试使用">测试使用</h3><p>podspec文件提交成功，即可通过Cocoapods测试使用自己的库了。更新Cocoapods仓库信息。</p>
 <p>执行 <code>pod setup</code>命令</p>
 <p>上述命令可能会很慢，请耐心等待或者更换taobao.ruby源。</p>
